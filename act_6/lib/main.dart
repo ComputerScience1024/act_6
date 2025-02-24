@@ -76,7 +76,12 @@ class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
   Map<String, dynamic> getMilestone(int age) {
-    if (age <= 12) {
+    if (age == 99) {
+      return {
+        'message': "You made it to 99! One more and you are 100!",
+        'color': Colors.purpleAccent
+      };
+    } else if (age <= 12) {
       return {'message': "You're a child!", 'color': Colors.lightBlue};
     } else if (age <= 19) {
       return {'message': "Teenager time!", 'color': Colors.lightGreen};
@@ -117,6 +122,7 @@ class MyHomePage extends StatelessWidget {
                 Text(
                   milestone['message'],
                   style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
                 ),
                 Slider(
                   value: counter.value.toDouble(),
